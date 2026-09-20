@@ -1,0 +1,34 @@
+{
+  "name": "Recettes communautaires ORION",
+  "updated": "2026-09-20",
+  "recipes": [
+    {
+      "id": "generique",
+      "file": "recipes/generic_display_only.json",
+      "version": 1,
+      "title": "Reglage ecran seul",
+      "author": "FoxSikh"
+    },
+    {
+      "id": "source_generic",
+      "file": "recipes/source_generic.json",
+      "version": 1,
+      "title": "Moteur Source / idTech (console)",
+      "author": "FoxSikh"
+    },
+    {
+      "id": "unity_generic",
+      "file": "recipes/unity_generic.json",
+      "version": 1,
+      "title": "Unity (generique)",
+      "author": "FoxSikh"
+    },
+    {
+      "id": "unreal_generic",
+      "file": "recipes/unreal_generic.json",
+      "version": 1,
+      "title": "Unreal Engine (generique)",
+      "author": "FoxSikh"
+    }
+  ]
+}
