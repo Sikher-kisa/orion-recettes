@@ -1,0 +1,41 @@
+{
+  "id": "unity_generic",
+  "name": "Unity (generique)",
+  "match": { "engine": ["unity"] },
+  "confidence": "moteur",
+  "derive": {
+    "unity_fs_mode": { "from": "window_mode",
+      "map": { "fullscreen": "0", "borderless": "1", "windowed": "3" } },
+    "unity_is_fs": { "from": "window_mode",
+      "map": { "fullscreen": "1", "borderless": "1", "windowed": "0" } },
+    "unity_quality": { "from": "quality",
+      "map": { "0": "0", "1": "2", "2": "3", "3": "5" } },
+    "unity_vsync": { "from": "vsync", "map": { "true": "1", "false": "0" } }
+  },
+  "targets": [
+    {
+      "format": "registry",
+      "paths": ["HKCU/Software/{unity_company}/{unity_product}"],
+      "entries": [
+        { "key": "Screenmanager Resolution Width_h182942802",
+          "value": "{resolution_w}", "label": "Largeur de l'image" },
+        { "key": "Screenmanager Resolution Height_h2627697771",
+          "value": "{resolution_h}", "label": "Hauteur de l'image" },
+        { "key": "Screenmanager Fullscreen mode_h3630240806",
+          "value": "{unity_fs_mode}", "label": "Mode d'affichage" },
+        { "key": "Screenmanager Is Fullscreen mode_h3981298716",
+          "value": "{unity_is_fs}", "label": "Plein ecran" },
+        { "key": "Screenmanager Resolution Use Native_h1405027254",
+          "value": "0", "label": "Utiliser la definition native" },
+        { "key": "UnityGraphicsQuality_h1108809218",
+          "value": "{unity_quality}", "label": "Niveau de qualite" },
+        { "key": "Screenmanager VSync_h1017310568",
+          "value": "{unity_vsync}", "label": "Synchronisation verticale" }
+      ]
+    }
+  ],
+  "advice": [
+    "Unity stocke ses options dans le registre : la sauvegarde ORION exporte la cle avant toute modification.",
+    "Certains jeux Unity ignorent le niveau de qualite global et gerent leurs propres options dans le menu."
+  ]
+}
