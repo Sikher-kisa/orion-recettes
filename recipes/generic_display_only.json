@@ -1,0 +1,12 @@
+{
+  "id": "generique",
+  "name": "Reglage ecran seul",
+  "match": {},
+  "confidence": "generique",
+  "targets": [],
+  "advice": [
+    "Aucune recette connue pour ce jeu : ORION regle l'ecran (definition et frequence) et vous laisse la main sur les options internes.",
+    "Dans le menu du jeu, reglez l'affichage sur la meme definition que celle appliquee ici, en plein ecran exclusif si l'option existe.",
+    "Vous pouvez creer votre propre recette : voir le dossier recipes, un fichier JSON suffit."
+  ]
+}
