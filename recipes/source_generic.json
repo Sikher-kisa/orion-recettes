@@ -1,0 +1,27 @@
+{
+  "id": "source_generic",
+  "name": "Moteur Source / idTech (console)",
+  "match": { "engine": ["source"] },
+  "confidence": "moteur",
+  "derive": {
+    "src_vsync": { "from": "vsync", "map": { "true": "1", "false": "0" } }
+  },
+  "targets": [
+    {
+      "format": "cfg",
+      "paths": ["{install_dir}/*/cfg/autoexec.cfg", "{install_dir}/cfg/autoexec.cfg"],
+      "create_if_missing": true,
+      "entries": [
+        { "key": "fps_max", "value": "{fps_cap}", "label": "Limite d'images" },
+        { "key": "mat_vsync", "value": "{src_vsync}", "label": "Synchronisation verticale" },
+        { "key": "mat_queue_mode", "value": "-1", "label": "Rendu multicoeur (auto)" },
+        { "key": "r_dynamic", "value": "{q_effects}", "label": "Eclairage dynamique" },
+        { "key": "cl_forcepreload", "value": "1", "label": "Prechargement des ressources" }
+      ]
+    }
+  ],
+  "advice": [
+    "Le fichier autoexec.cfg est lu a chaque lancement ; le bloc genere par ORION est isole et peut etre retire sans toucher au reste.",
+    "Pensez a lancer le jeu avec -high -novid pour gagner quelques images par seconde en competition."
+  ]
+}
