@@ -1,0 +1,71 @@
+{
+  "id": "unreal_generic",
+  "name": "Unreal Engine (generique)",
+  "match": { "engine": ["unreal"] },
+  "confidence": "moteur",
+  "derive": {
+    "ue_fullscreen": { "from": "window_mode",
+      "map": { "fullscreen": "0", "borderless": "1", "windowed": "2" } },
+    "ue_vsync": { "from": "vsync", "map": { "true": "True", "false": "False" } },
+    "ue_motion_blur": { "from": "fx_motion_blur", "map": { "true": "1", "false": "0" } },
+    "ue_post": { "from": "q_postprocess", "map": { "0": "0", "1": "1", "2": "2", "3": "3" } }
+  },
+  "targets": [
+    {
+      "format": "ini",
+      "paths": [
+        "%LOCALAPPDATA%/{ue_project}/Saved/Config/Windows/GameUserSettings.ini",
+        "%LOCALAPPDATA%/{ue_project}/Saved/Config/WindowsNoEditor/GameUserSettings.ini",
+        "%LOCALAPPDATA%/{ue_project}/Saved/Config/WinGDK/GameUserSettings.ini"
+      ],
+      "entries": [
+        { "section": "/Script/Engine.GameUserSettings", "key": "ResolutionSizeX",
+          "value": "{resolution_w}", "label": "Largeur de l'image" },
+        { "section": "/Script/Engine.GameUserSettings", "key": "ResolutionSizeY",
+          "value": "{resolution_h}", "label": "Hauteur de l'image" },
+        { "section": "/Script/Engine.GameUserSettings", "key": "LastUserConfirmedResolutionSizeX",
+          "value": "{resolution_w}", "label": "Largeur confirmee" },
+        { "section": "/Script/Engine.GameUserSettings", "key": "LastUserConfirmedResolutionSizeY",
+          "value": "{resolution_h}", "label": "Hauteur confirmee" },
+        { "section": "/Script/Engine.GameUserSettings", "key": "FullscreenMode",
+          "value": "{ue_fullscreen}", "label": "Mode d'affichage" },
+        { "section": "/Script/Engine.GameUserSettings", "key": "LastConfirmedFullscreenMode",
+          "value": "{ue_fullscreen}", "label": "Mode d'affichage confirme" },
+        { "section": "/Script/Engine.GameUserSettings", "key": "PreferredFullscreenMode",
+          "value": "{ue_fullscreen}", "label": "Mode d'affichage prefere" },
+        { "section": "/Script/Engine.GameUserSettings", "key": "FrameRateLimit",
+          "value": "{fps_cap}.000000", "label": "Limite d'images par seconde" },
+        { "section": "/Script/Engine.GameUserSettings", "key": "bUseVSync",
+          "value": "{ue_vsync}", "label": "Synchronisation verticale" },
+        { "section": "/Script/Engine.GameUserSettings", "key": "bUseDynamicResolution",
+          "value": "False", "label": "Resolution dynamique" },
+        { "section": "ScalabilityGroups", "key": "sg.ResolutionQuality",
+          "value": "100.000000", "label": "Echelle de resolution" },
+        { "section": "ScalabilityGroups", "key": "sg.ViewDistanceQuality",
+          "value": "{q_view_distance}", "label": "Distance d'affichage" },
+        { "section": "ScalabilityGroups", "key": "sg.AntiAliasingQuality",
+          "value": "{q_antialiasing}", "label": "Anticrenelage" },
+        { "section": "ScalabilityGroups", "key": "sg.ShadowQuality",
+          "value": "{q_shadows}", "label": "Ombres" },
+        { "section": "ScalabilityGroups", "key": "sg.GlobalIlluminationQuality",
+          "value": "{q_effects}", "label": "Eclairage global" },
+        { "section": "ScalabilityGroups", "key": "sg.ReflectionQuality",
+          "value": "{q_reflections}", "label": "Reflets" },
+        { "section": "ScalabilityGroups", "key": "sg.PostProcessQuality",
+          "value": "{ue_post}", "label": "Post-traitement" },
+        { "section": "ScalabilityGroups", "key": "sg.TextureQuality",
+          "value": "{q_textures}", "label": "Textures" },
+        { "section": "ScalabilityGroups", "key": "sg.EffectsQuality",
+          "value": "{q_effects}", "label": "Effets" },
+        { "section": "ScalabilityGroups", "key": "sg.FoliageQuality",
+          "value": "{q_foliage}", "label": "Vegetation" },
+        { "section": "ScalabilityGroups", "key": "sg.ShadingQuality",
+          "value": "{q_effects}", "label": "Ombrage" }
+      ]
+    }
+  ],
+  "advice": [
+    "Les jeux Unreal relisent ce fichier au lancement : si le jeu est ouvert, fermez-le avant d'appliquer.",
+    "Si le jeu propose DLSS ou FSR dans son menu, activez-le au niveau indique par le profil : ORION ne peut pas le forcer depuis le fichier de configuration."
+  ]
+}
